@@ -1,0 +1,55 @@
+{% extends 'kidzapp/parent/parent_base.html' %}
+{%load static%}
+{% block title%}KidzPortal| Inbox{%endblock%}
+{% block style%}
+table, th, td {
+  border: 1px solid black;
+}
+  
+form{
+    border-radius: 20px;
+    margin-top:50px}
+{%endblock%}
+
+{% block content%}
+<div class="row float-right" style="margin-top:30px;" >
+    <div class="col">
+        {%if msg %} 
+        <form method="POST"action="/delete_message/">
+            {% csrf_token %}
+        <table class="table">
+
+    <thread>
+        <tr>
+            <th scope="col">Check</th>
+            <th scope="col">Date</th>
+            <th scope="col">Organizer</th> 
+            <th scope="col">Message</th>
+            </tr>
+
+    </thread>
+    <tbody>
+    {%for row_data in msg%}
+    <tr>
+        <th scope="row"><input type="checkbox" name="chk" id="chk"value="{{row_data.id}}"></th>
+            <td>{{row_data.date}}</td> 
+            <td>{{row_data.sender_id}}</td>
+            <td><a href="/show_message/{{row_data.id}}">{{row_data.subject}}</a></td>
+
+    </tr>  
+    {%endfor%}
+    <tr><td colspan="4"><button type="submit" class="btn btn-primary">Delete</button></td></tr>
+
+</tbody>
+</table>
+
+
+
+</form>
+{%endif%}
+</div>
+</div> 
+{%endblock%}
+{% block script1%}
+    if(window.history.replaceState){ window.history.replaceState(null,null,window.location.href);}
+{%endblock%}

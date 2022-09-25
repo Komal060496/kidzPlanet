@@ -1,0 +1,54 @@
+{% extends 'kidzapp/parent/parent_base.html' %}
+{%load static%}
+{% block title%}KidzPortal|Organizer|Activities{%endblock%}
+{% block style%} 
+
+#bg{
+  width: 100%;
+  height: 500px;
+ box-shadow: px 2px 5px #777 
+}
+
+.car{
+  border-radius: 20px;
+}
+
+
+  .cardbody-color{
+    background-color: red;
+  }
+ 
+  .cards {
+    transition: all 0.5s ease;
+    cursor: pointer
+}
+
+.cards:hover {
+    box-shadow: 5px 6px 6px 2px #ebf2fa;
+    transform: scale(1.05)
+}
+.btn:hover {
+  box-shadow: 5px 6px 6px 2px green;
+  transform: scale(1.1)   }
+
+  {%endblock%}
+{%block content%}
+
+  <div class="container"style="margin:50px;padding:50px">
+        <div class="row g-0">
+          {%for ob in act %}
+            <div class="col-md-4 border-right"> 
+              <div class="cards car">
+                <div class="first bg-white p-4 text-center car" style="margin:10px;padding width: 24rem;background: linear-gradient(90deg, #1f005c, #5b0060, #870160, #ac255e, #ca485c, #e16b5c, #f39060, #ffb56b);" >       
+                <h5 class="card-subtitle mb-2 text-light">{{ob.name}}</h5>
+                <h6 class="card-title text-light">{{ob.email}}</h6>
+                <h5 class="card-text text-light">{{ob.phone}}</h5>
+                <a  href="/show_activity/{{ob.user_name}}"type="submit" class="btn btn-success text-light" id="button1">Activity</a>
+                <a  href="/feed_back/{{ob.user_name}}"type="submit" class="btn btn-success text-light" id="button2">Feedback</a>
+              </div>
+          </div>
+      </div>  
+    {%endfor %}
+    </div>
+  </div>
+    {%endblock%}

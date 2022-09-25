@@ -1,0 +1,203 @@
+{% extends 'kidzapp/parent/parent_base.html' %}
+{%load static%}
+{% block title%}KidzPortal|Admission{%endblock%}
+{% block style%} 
+
+#bg{
+  width: 100%;
+  height: 500px;
+  box-shadow: px 2px 5px #777
+}
+.ms-1 {
+  margin-left: ($spacer * .25) !important;
+}
+. background: linear-gradient{
+  45deg,
+  rgba(29, 236, 197, 0.5),
+  rgba(91, 14, 214, 0.5) 100%};
+  .btn-color{
+    background-color: #0e1c36;
+    color: #fff;
+    
+  }
+  
+  .profile-image-pic{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+  }
+  
+  
+  
+  .cardbody-color{
+    background-color: #ebf2fa;
+  }
+  
+  a{
+    text-decoration: none;
+  }  
+
+  form{
+    border-radius: 20px;
+    margin-top:50px
+  }{%endblock%}
+  {%block content%}
+
+  {% if messages%}
+     {%for m in messages%}
+      {% comment %} <h3 class="text-{{m.tags}}">{{m}}</h3> {% endcomment %}
+      <div class="row justify-content-center" style="margin-top:50px">
+        <div class="col-6">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{m}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+     {%endfor%}
+     {%endif%}  </div>
+    </div>
+    <div class="row mb-4 ms-1 p-3 my-3 mb-3" style="margin:0px;padding:0px;">
+      <div class="col-4 p-3"></div>
+      <div class="col-5 ">  
+        
+      <form class="needs-validation card-body cardbody-color p-lg-5" method="POST" action="/final_admission/" name="enrollment_form" novalidate >
+            {% csrf_token %}
+            <input type="hidden" value="{{admission.id}}" name="txtactivity_id">
+            <div class="container bimg ">
+            <div class="row-5 cmargin ">
+                <div class=" bg-transparent  text-dark blockquote cmargin ">
+                  <div class="text-center">
+                    <img src="{%static 'kidzapp/images/login.jpg'%}" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                      width="200px" alt="profile">
+                  </div>
+                    
+                    <div class="form-outline  row mb-4 justify-content-center">
+                        <h2 class="form-outline  row mb-4 justify-content-center text-darkt">Admission In {{admission.activity_name}}</h2>
+                         
+                    </div>
+                
+                <!--Kid_Name-->
+                <div class="form-outline row mb-4  justify-content-center ">
+                    <label class="form-label col-sm-6 col-form-label text-dark " for="form2Example1">Kid_Name-:</label>
+                    <div class="col-sm-6">
+                        <input type="text" name="kid_name" id="form2Example1" class="form-control  text-dark  bg-transparent" required />
+                   
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                
+                    </div>
+                </div>
+               
+                 <!--age-->
+                 <div class="form-outline row mb-4  justify-content-center ">
+                    <label class="form-label col-sm-6 col-form-label text-dark " for="form2Example1">Age-:</label>
+                    <div class="col-sm-6">
+                        <input type="text" name="age" id="form2Example1" class="form-control  text-dark  bg-transparent" required />
+                   
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                
+                    </div>
+                </div>
+                 <!--schoolname-->
+                 <div class="form-outline row mb-4  justify-content-center ">
+                    <label class="form-label col-sm-6 col-form-label text-dark " for="form2Example1">School_Name-:</label>
+                    <div class="col-sm-6">
+                        <input type="text" name="school_name" id="form2Example1" class="form-control  text-dark  bg-transparent " required />
+                   
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                
+                    </div>
+                </div>
+                 <!--standard-->
+                 <div class="form-outline row mb-4  justify-content-center ">
+                    <label class="form-label col-sm-6 col-form-label text-dark " for="form2Example1">Standard-:</label>
+                    <div class="col-sm-6">
+                        <input type="text" name="standard" id="form2Example1" class="form-control  text-dark  bg-transparent" required />
+                   
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                
+                    </div>
+                </div>
+                 <!--mothername-->
+                 <div class="form-outline row mb-4  justify-content-center ">
+                    <label class="form-label col-sm-6 col-form-label text-dark " for="form2Example1">Mother Name-:</label>
+                    <div class="col-sm-6">
+                        <input type="text" name="mothername" id="form2Example1" class="form-control  text-dark  bg-transparent" required />
+                   
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                
+                    </div>
+                </div>
+                <!--fathername-->
+                <div class="form-outline row mb-4  justify-content-center ">
+                    <label class="form-label col-sm-6 col-form-label text-dark " for="form2Example1">Father Name</label>
+                    <div class="col-sm-6">
+                        <input type="text" name="fathername" id="form2Example1" class="form-control  text-dark  bg-transparent" required />
+                   
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                
+                    </div>
+                </div>
+                <!--phone-number-->
+                <div class="form-outline row mb-4  justify-content-center ">
+                    <label class="form-label col-sm-6 col-form-label text-dark " for="form2Example1">Phone Number</label>
+                    <div class="col-sm-6">
+                        <input type="number" name="phone_no" id="form2Example1" class="form-control  text-dark  bg-transparent" required />
+                   
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                
+                    </div>
+                </div>
+                <!--fees-->
+                <div class="form-outline row mb-4  justify-content-center ">
+                  <label class="form-label col-sm-6 col-form-label text-dark " for="form2Example1">Fees-:</label>
+                  <div class="col-sm-6">
+                      <input type="text" name="fees" id="form2Example1" class="form-control  text-dark  bg-transparent"  value="{{admission.fees}}" required />
+                 
+                      <div class="valid-feedback">Valid.</div>
+                      <div class="invalid-feedback">Please fill out this field.</div>
+              
+                  </div>
+              </div>
+                 
+        <!--transaction_id-->
+        <div class="form-outline row mb-4  justify-content-center ">
+            <label class="form-label col-sm-6 col-form-label text-dark " for="form2Example1">Transaction_Id-:</label>
+            <div class="col-sm-6">
+                <input type="text" name="transaction_id" id="form2Example1" class="form-control  text-dark  bg-transparent" required />
+           
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+        
+            </div>
+        </div> 
+            
+          <!--submit button -->
+                     <div class="form-outline row mb-4  justify-content-center ">
+                        <div class="col-sm-4">
+                        <button type="submit" class="btn btn-success text-light" id="button1">Submit</button>
+                         </div>
+                        </div>
+            </div>
+          
+            </div>
+        </div>
+        </form> 
+
+
+      </div>
+       <div class="col-3 p-4"></div> 
+      </div>
+
+
+    {% endblock%}
+    {% block script1%}
+   
+      if(window.history.replaceState){ window.history.replaceState(null,null,window.location.href);}
+   
+    {%endblock%}

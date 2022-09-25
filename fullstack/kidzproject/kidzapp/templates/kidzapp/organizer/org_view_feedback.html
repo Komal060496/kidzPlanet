@@ -1,0 +1,82 @@
+{%extends 'kidzapp/organizer/org_base.html' %}
+
+{%load static%}
+{% block title%}KidzPortal|Feedback{%endblock%}
+{% block style%} 
+
+#bg{
+  width: 100%;
+  height: 500px;
+  box-shadow: px 2px 5px #777
+}
+.ms-1 {
+  margin-left: ($spacer * .25) !important;
+}
+. background: linear-gradient{
+  45deg,
+  rgba(29, 236, 197, 0.5),
+  rgba(91, 14, 214, 0.5) 100%};
+  .btn-color{
+    background-color: #0e1c36;
+    color: #fff;
+    
+  }
+  
+  .profile-image-pic{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+  }
+  
+  
+  
+  .cardbody-color{
+    background-color: #ebf2fa;
+  }
+  
+  a{
+    text-decoration: none;
+  }  
+
+  form{
+    border-radius: 20px;
+    margin-top:50px
+  }
+  {%endblock%}
+  {%block content%}
+
+   
+  {% comment %} <body style='background-color:rgb(200, 100, 113)'> {% endcomment %}
+    
+   
+     
+      <h1>Hello</h1>
+      <div class="row" style="margin:50px;padding:50px">
+        {%for ob in userdata %}
+        <div class="col-4 ">
+        {% comment %} <p>{{obj.event_name}}</p> {% endcomment %}
+        <div class="card" style="width: 24rem;">
+          <div class="card-body">
+            {% comment %} <h5 class="card-subtitle mb-2 text-muted">{{ob.activity_name}}</h5>
+            <h6 class="card-title">{{ob.age_group}}</h6> {% endcomment %}
+            <h6 class="card-text">{{ob.feedback_text}}</h6>
+            <h6 class="card-text">{{ob.rating}}</h6>
+            {% comment %} <h5 class="card-subtitle mb-2 text-muted"></h5>
+            <p class="card-text">{{obj.description}}</p> {% endcomment %}
+            {% comment %} <a href="#" class="card-link">Card link</a> {% endcomment %}
+            {% comment %} <a  href="/enrollment_form/{{ob.id}}"type="submit" class="btn btn-success text-light" id="button1">Registration</a> {% endcomment %}
+            {% comment %} <a  href="/feedback/{{ob.id}}"type="submit" class="btn btn-success text-light" id="button1">Feedback</a> {% endcomment %}
+            {% comment %} <a href="#" class="card-link">Another link</a>  {% endcomment %}
+          </div>
+        </div>
+        </div>
+        {%endfor %}
+        </div>
+
+
+{% endblock%}
+    {% comment %} {% block script1%}
+    if(window.history.replaceState){ window.history.replaceState(null,null,window.location.href);}
+    {%endblock%} {% endcomment %}
+
+    

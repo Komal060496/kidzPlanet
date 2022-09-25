@@ -1,0 +1,70 @@
+{% extends 'kidzapp/parent/parent_base.html' %}
+{%load static%}
+{% block title%}KidzPortal|Enrolled{%endblock%}
+{% block style%} 
+
+#bg{
+  width: 100%;
+  height: 500px;
+  box-shadow: px 2px 5px #777
+}
+.ms-1 {
+  margin-left: ($spacer * .25) !important;
+}
+. background: linear-gradient{
+  45deg,
+  rgba(29, 236, 197, 0.5),
+  rgba(91, 14, 214, 0.5) 100%};
+  .btn-color{
+    background-color: #0e1c36;
+    color: #fff;
+    
+  }
+  
+  .profile-image-pic{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+  }
+  
+  
+  
+  .cardbody-color{
+    background-color: #ebf2fa;
+  }
+  
+  a{
+    text-decoration: none;
+  }  
+
+  form{
+    border-radius: 20px;
+    margin-top:50px
+  }
+  .card{
+    color:white;
+    border-radius: 20px;
+  }{%endblock%}
+{%block content%}
+<div class="row" style="margin:50px;padding:50px">
+    {%for ob in ac %}
+    <div class="col-4 ">
+    {% comment %} <p>{{obj.event_name}}</p> {% endcomment %}
+    <div class="card" style="width: 24rem;width: 24rem;background: linear-gradient(90deg, #1f005c, #5b0060, #870160, #ac255e, #ca485c, #e16b5c, #f39060, #ffb56b);">
+      <div class="card-body">
+        <h5 class="card-subtitle mb-2 ">{{ob.activity_name}}</h5>
+        <h6 class="card-title">{{ob.age_group}}</h6>
+        <h6 class="card-text">{{ob.fees}}</h6>
+        <h6 class="card-text">{{ob.duration}}</h6>
+        {% comment %} <h5 class="card-subtitle mb-2 text-muted"></h5>
+        <p class="card-text">{{obj.description}}</p> {% endcomment %}
+        {% comment %} <a href="#" class="card-link">Card link</a> {% endcomment %}
+        <a  href="/enrollment_form/{{ob.id}}"type="submit" class="btn btn-success text-light" id="button1">Registration</a>
+        {% comment %} <a  href="/feedback/{{ob.id}}"type="submit" class="btn btn-success text-light" id="button1">Feedback</a> {% endcomment %}
+        {% comment %} <a href="#" class="card-link">Another link</a>  {% endcomment %}
+      </div>
+    </div>
+    </div>
+    {%endfor %}
+    </div>
+    {%endblock%}

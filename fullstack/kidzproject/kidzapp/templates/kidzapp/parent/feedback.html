@@ -1,0 +1,257 @@
+{% extends 'kidzapp/parent/parent_base.html' %}
+{%load static%}
+{% block title%}KidzPortal|Feedback{%endblock%}
+{% block style%} 
+.divider:after,
+        .divider:before {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: #eee;
+        }
+        .h-custom {
+        height: calc(100% - 73px);
+        }
+        @media (max-width: 450px) {
+        .h-custom {
+        height: 100%;
+        }
+        }
+      
+      
+        .rating {
+          float:left;
+        width:170px;
+    }
+    .rating span { float:right; position:relative; }
+    .rating span input {
+      position:absolute;
+        top:0px;
+        left:0px;
+        opacity:0;
+    }
+    .rating span label {
+        display:inline-block;
+        width:30px;
+        height:30px;
+        text-align:center;
+        color:#FFF;
+        background:#ccc;
+        font-size:30px;
+        margin-right:2px;
+        line-height:30px;
+        border-radius:50%;
+        -webkit-border-radius:50%;
+      }
+      .rating span:hover ~ span label,
+      .rating span:hover label,
+      .rating span.checked label,
+      .rating span.checked ~ span label {
+        background:#F90;
+        color:#FFF;
+      }
+      .checked {
+        color: orange;
+      } 
+      @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 0px; padding: 0px;}
+h1 { font-size: 1.5em; margin: 0px; }
+
+/****** Style Star Rating Widget *****/
+
+.rating { 
+  border: none;
+  float:left !important;
+  margin: 0px;
+  padding: 0px; 
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+
+{%endblock%}
+
+{%block content%}
+{% if messages%}
+     {%for m in messages%}
+      {% comment %} <h3 class="text-{{m.tags}}">{{m}}</h3> {% endcomment %}
+      <div class="row justify-content-center">
+        <div class="col-3">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top:50px">
+        <strong>{{m}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+     {%endfor%}
+     {%endif%}  </div>
+    </div>
+     <section class="vh-100">
+        <div class="container-fluid h-custom">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+              <form class="needs-validation"method="POST" action="/final_feedback/"novalidate>
+
+                {% csrf_token %}
+                
+                <input type="hidden" value="{{org_user_name}}" name="txtorg_user_name" required />
+                <div class="flex-row align-items-center justify-content-center justify-content-lg-start" >
+                  <p class="lead fw-normal mb-0 me-3" style="color:blue;text-font-size:40px;font-weight:bold;">Please rate your experience for this course....</p>
+                
+                 <br>
+                 
+                {% comment %} <div class=" color:dark d-flex align-items-center my-4" >
+                  <p class="text-center"></p>
+                </div>  {% endcomment %}
+      
+                
+                
+      
+                <div class="form-outline mb-3">
+                  <label class="form-label" for="form3Example4">Feedback</label>
+                  <textarea id="form3Example4" class="form-control form-control-lg" name="feedback"
+                    placeholder="Write Your Feedback Here..." required ></textarea>
+                    <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+               
+               
+             
+               <div class="form-outline"> 
+                {% comment %} </div>
+                
+                <div class="form-outline mb-3 rating "> {% endcomment %}
+                  <label class="form-label" for="form3Example4">Rate Us</label>
+                </div>
+                  <fieldset class=" rating">
+                  
+                  <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                    
+                    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                    
+                    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                    
+                    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                    
+                    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                    
+                  </fieldset>
+                  <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                  
+              <div class="form-outline mb-3 text-center text-lg-start mt-4 pt-2 justify-content-center">
+                <div class="col-sm-4">
+                <button type="submit" class="btn btn-primary btn-lg "
+                  style="padding-left: 2.5rem; padding-right: 2.5rem;">Submit</button>
+               </div>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+          
+      </section> 
+{%endblock%}
+{%block script1%}
+
+if(window.history.replaceState){ window.history.replaceState(null,null,window.location.href);}
+  
+{%endblock%}
+{% comment %} 
+<html>
+<head>
+<style>
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 20px; }
+h1 { font-size: 1.5em; margin: 10px; }
+
+/****** Style Star Rating Widget *****/
+
+.rating { 
+  border: none;
+  float: left;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+</style>
+</head>
+
+<body>
+<h1>Pure CSS Star Rating Widget</h1>
+<fieldset class="rating">
+    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+    <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+</fieldset>
+</body>
+</html>
+{% endcomment %}

@@ -1,0 +1,53 @@
+{%load static%}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'kidzapp/css/parent.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
+    <title>Hello {{userdata.name}}</title>
+
+</head>
+<body style='background-color: #16384c'>
+	{%include "kidzapp/parent/parent_header.html" %} 
+   
+    <!--Container Main end-->
+	<div class="text-light"style = "background-color: #16384c;margin-top:80px">
+   
+        <h4  style = "text-align: center">Hello {{userdata.name}}</h4>
+        <h1  style = "text-align: center">Welcome to the </h1>
+        <h4  style = "text-align: center">All the respective content should written here. </h4>
+    </div>
+	<div class="card  d-flex text-light "style = "background-color: #16384c;" >
+		<div class="row g-0">
+		  <div class="col-md-4">
+        <video width="320" height="240" autoplay="true">
+        <source src='{%static 'kidzapp/video/parent_home.mp4'%}' type="video/mp4">
+        {% comment %} <source src="movie.ogg" type="video/ogg"> {% endcomment %}
+        Your browser does not support the video tag.
+      </video>
+	        {% comment %} <img src='{%static 'kidzapp/images/parent_home.jpg'%}' class="img-fluid rounded-start" alt="..."> {% endcomment %}
+		  </div>
+		  <div class="col-md-8">
+			<div class="card-body">
+			  <h5 class="card-title">{{userdata.name}}</h5>
+			  <p class="card-text">{{userdata.email}}</p>
+			  <p class="card-text">{{userdata.phone}}</p>
+			 
+			  {% comment %} <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> {% endcomment %}
+			</div>
+		  </div>
+		</div>
+	  </div>
+       {%include "kidzapp/html/footer.html" %} 
+    <script type= 'text/javascript'src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
+   
+    {% comment %} <script src="{% static 'kidzapp/js/parent_home.js' %}"></script> {% endcomment %}
+</body>
+</html>

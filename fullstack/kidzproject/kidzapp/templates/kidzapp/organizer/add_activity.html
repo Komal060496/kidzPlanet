@@ -1,0 +1,172 @@
+{%extends 'kidzapp/organizer/org_base.html' %}
+
+{%load static%}
+{% block title%}KidzPortal|Add Activity{%endblock%}
+{% block style%} 
+
+#bg{
+  width: 100%;
+  height: 500px;
+  box-shadow: px 2px 5px #777
+}
+.ms-1 {
+  margin-left: ($spacer * .25) !important;
+}
+. background: linear-gradient{
+  45deg,
+  rgba(29, 236, 197, 0.5),
+  rgba(91, 14, 214, 0.5) 100%};
+  .btn-color{
+    background-color: #0e1c36;
+    color: #fff;
+    
+  }
+  
+  .profile-image-pic{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+  }
+  
+  
+  
+  .cardbody-color{
+    background-color: #ebf2fa;
+  }
+  
+  a{
+    text-decoration: none;
+  }  
+
+  form{
+    border-radius: 20px;
+    margin-top:50px
+  }{%endblock%}
+  {%block content%}
+
+   
+  {% comment %} <body style='background-color:rgb(200, 100, 113)'> {% endcomment %}
+    
+   
+    {% if messages%}
+     {%for m in messages%}
+      {% comment %} <h3 class="text-{{m.tags}}">{{m}}</h3> {% endcomment %}
+      <div class="row justify-content-center" style="margin-top:50px">
+        <div class="col-6">
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{m}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+     {%endfor%}
+     {%endif%}  </div>
+    </div>
+    <div class="row mb-4 ms-1 p-3 my-3 mb-3">
+      <div class="col-4  p-3 "></div>
+      <div class="col-4 p-3">  
+      <form class="needs-validation card-body cardbody-color p-lg-5" method="POST" action="/add_activity/" name="add_activity" novalidate >
+            {% csrf_token %}
+            <div class="container bimg ">
+            <div class="row-5 cmargin ">
+                <div class=" bg-transparent  text-dark blockquote cmargin ">
+                  <div class="text-center">
+                    <img src="{%static 'kidzapp/images/login_page.png'%}" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                      width="200px" alt="profile">
+                  </div>
+                    
+                    <div class="form-outline  row mb-4 justify-content-center">
+                        <h2 class="form-outline  row mb-4 justify-content-center text-darkt">Add Activity</h2>
+                         
+                    </div>
+                
+                <!--Name-->
+                <div class="form-outline row mb-4  justify-content-center ">
+                    <label class="form-label col-sm-6 col-form-label text-dark " for="form2Example1">Name-:</label>
+                    <div class="col-sm-6">
+                        <input type="text" name="activity_name" id="form2Example1" class="form-control  text-dark  bg-transparent" required />
+                   
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                
+                    </div>
+                </div>
+                <!--content-->
+                {% comment %} <div class="form-outline row mb-4  justify-content-center ">
+                    <label class="form-label col-sm-6 col-form-label text-dark " for="form2Example1">Content-:</label>
+                   <div class="col-sm-6">
+         
+                        <textarea id="w3review" name="txtcontent"class="form-control  text-dark  bg-transparent" required></textarea>
+                       
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                
+                    </div>
+                </div> {% endcomment %}
+                <div class="form-outline row mb-4  justify-content-center ">
+                    <label class="form-label col-sm-6 col-form-label text-dark " for="form2Example1">Age_Group-:</label>
+                   <div class="col-sm-6">
+         
+                    <select class="form-select" name="age_grp" aria-label="Default select example">
+                        <option selected> Select Age</option>
+                        <option value="2year-3year">2year-3year</option>
+                        <option value="2year-5year">2year-5year</option>
+                        <option value="3year-9year">3year-9year</option>
+                        <option value="6year-11year">6year-11year</option>
+                        <option value="2year-11year">2year-11year</option>
+                       
+                      </select>
+                       
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                
+                    </div>
+                </div>
+        <!--fees-->
+        <div class="form-outline row mb-4  justify-content-center ">
+            <label class="form-label col-sm-6 col-form-label text-dark " for="form2Example1">Fees-:</label>
+            <div class="col-sm-6">
+                <input type="text" name="fees" id="form2Example1" class="form-control  text-dark  bg-transparent" required />
+           
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+        
+            </div>
+        </div>
+        <!--duration-->
+        <div class="form-outline row mb-4  justify-content-center ">
+            <label class="form-label col-sm-6 col-form-label text-dark " for="form2Example1">Duration-:</label>
+            <div class="col-sm-6">
+                <input type="text" name="duration" id="form2Example1" class="form-control  text-dark  bg-transparent" required />
+           
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+        
+            </div>
+        </div>
+                
+                
+               
+            
+          <!--submit button -->
+                     <div class="form-outline row mb-4  justify-content-center ">
+                        <div class="col-sm-4">
+                        <button type="submit" class="btn btn-success text-light" id="button1">Submit</button>
+                         </div>
+                        </div>
+            </div>
+          
+            </div>
+        </div>
+        </form> 
+
+
+      </div>
+       <div class="col-4 p-4"></div> 
+      </div>
+
+
+    {% endblock%}
+    {% block script1%}
+   
+      if(window.history.replaceState){ window.history.replaceState(null,null,window.location.href);}
+   
+    {%endblock%}

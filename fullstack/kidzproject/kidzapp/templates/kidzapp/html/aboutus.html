@@ -1,0 +1,78 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>aboutus</title>
+   
+    <link rel="icon" href="{% static 'kidzapp/images/favicon.jpg' %}" type="image/jpg">
+   
+    <style>
+      #bg{
+        width: 100%;
+        height: auto;
+        box-shadow: px 2px 5px #777
+      };
+      .ms-1 {
+        margin-left: ($spacer * .25) !important;
+      };
+     . background: linear-gradient{
+        45deg,
+        rgba(29, 236, 197, 0.5),
+        rgba(91, 14, 214, 0.5) 100%
+      
+      
+      
+    </style>
+    
+  </head>
+  <body style='background-color:black'>
+  {% comment %} <body style='background-color:rgb(200, 100, 113)'> {% endcomment %}
+    
+    {%include "kidzapp/html/header.html" %} 
+   
+    
+    <div class="row mb-4 ms-1 p-3 my-5 mb-3"style="margin:0px;padding:0px">
+     
+      
+      <div class="col-6 p-3 ">
+        <h1 class="text-white">About Us</h1>
+      
+      <p class="text-white justify-content-center" style="text-align:justify;text-font-size:12px">
+        This is very well said<b> ”Children-The future of tomorrow”</b>. The Wealth of a nation is not so much in its of economical and natural resources but it lies more decidedly in the kind and quality of the wealth of its children and youth. It is they who will be the creators and shapers of a nation’s tomorrow. The Children of today will be adults of tomorrow. Their quality and personality will determine the kind of destiny that beacons the nation. The Youth of the nation is its power house. They have boundless stores of energy, will, capability, zeal, and enthusiasm and have the power to mould the destiny of the nation. This infinite storehouse of energy has to be properly molded and needs to be given appropriate direction. The youth has to train to use their talents needs to given appropriate direction. The youth has to be trained to use their talents and abilities in constructive ways and help in nation-building and strengthening of it.<br>
+        This is a web portal where parents will be able to explore all the dimensions related to overall development of their kids. They can find an easy way to give right direction to their kid’s talent in just one click.
+        
+      </p>
+
+
+      </div>
+      <div class="col-6">
+        <img src="{%static 'kidzapp/images/aboutpg.jpg'%}" alt="" id="bg">
+      
+       </div>
+      </div>
+
+    {%include "kidzapp/html/footer.html" %} 
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
